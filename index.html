@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Music-to-Dance Generation via Atomic Movements - Xinhao Cai, Yixuan Sun, Minghang Zheng, Qingchao Chen, Xin Jin, Song-chun Zhu, Yang Liu">
+  <meta name="description" content="AtomicDance generates music-synchronized dance by planning interpretable atomic movements and completing them with transition-aware motion diffusion.">
+  <meta name="keywords" content="music-to-dance generation, atomic movements, motion generation, choreography, diffusion models, computer vision, machine learning">
+  <meta name="author" content="Xinhao Cai, Yixuan Sun, Minghang Zheng, Qingchao Chen, Xin Jin, Song-chun Zhu, Yang Liu">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AtomicDanceProject">
+  <meta property="og:title" content="Music-to-Dance Generation via Atomic Movements">
+  <meta property="og:description" content="A two-stage music-to-dance framework that plans symbolic atomic movements and synthesizes smooth, musically aligned full-body motion.">
+  <meta property="og:url" content="https://cxhcmhhh.github.io/AtomicDanceProject/">
+  <meta property="og:image" content="https://cxhcmhhh.github.io/AtomicDanceProject/static/images/social_preview.png">
+  <meta property="og:image:alt" content="AtomicDance research preview">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Xinhao Cai, Yixuan Sun, Minghang Zheng, Qingchao Chen, Xin Jin, Song-chun Zhu, Yang Liu">
+  <meta property="article:section" content="Research">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Music-to-Dance Generation via Atomic Movements">
+  <meta name="twitter:description" content="AtomicDance plans interpretable atomic movements from music and completes them into coherent dance motion.">
+  <meta name="twitter:image" content="https://cxhcmhhh.github.io/AtomicDanceProject/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="AtomicDance research preview">
+
+  <meta name="citation_title" content="Music-to-Dance Generation via Atomic Movements">
+  <meta name="citation_author" content="Cai, Xinhao">
+  <meta name="citation_author" content="Sun, Yixuan">
+  <meta name="citation_author" content="Zheng, Minghang">
+  <meta name="citation_author" content="Chen, Qingchao">
+  <meta name="citation_author" content="Jin, Xin">
+  <meta name="citation_author" content="Zhu, Song-chun">
+  <meta name="citation_author" content="Liu, Yang">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="European Conference on Computer Vision">
+  <meta name="citation_pdf_url" content="https://cxhcmhhh.github.io/AtomicDanceProject/static/pdfs/paper.pdf">
+
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>Music-to-Dance Generation via Atomic Movements | AtomicDanceProject</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Music-to-Dance Generation via Atomic Movements",
+    "description": "AtomicDance generates music-synchronized dance by planning interpretable atomic movements and completing them with transition-aware motion diffusion.",
+    "author": [
+      {"@type": "Person", "name": "Xinhao Cai"},
+      {"@type": "Person", "name": "Yixuan Sun"},
+      {"@type": "Person", "name": "Minghang Zheng"},
+      {"@type": "Person", "name": "Qingchao Chen"},
+      {"@type": "Person", "name": "Xin Jin"},
+      {"@type": "Person", "name": "Song-chun Zhu"},
+      {"@type": "Person", "name": "Yang Liu"}
+    ],
+    "datePublished": "2026-01-01",
+    "publisher": {"@type": "Organization", "name": "European Conference on Computer Vision"},
+    "url": "https://cxhcmhhh.github.io/AtomicDanceProject/",
+    "image": "https://cxhcmhhh.github.io/AtomicDanceProject/static/images/social_preview.png",
+    "keywords": ["music-to-dance generation", "atomic movements", "motion generation", "diffusion models"],
+    "isAccessibleForFree": true
+  }
+  </script>
+</head>
+<body>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Music-to-Dance Generation via Atomic Movements</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><a href="https://openreview.net/profile?id=%7EXinhao_Cai3" target="_blank">Xinhao Cai</a>,</span>
+                <span class="author-block">Yixuan Sun,</span>
+                <span class="author-block"><a href="https://minghangz.github.io/" target="_blank">Minghang Zheng</a>,</span>
+                <span class="author-block">Qingchao Chen,</span>
+                <span class="author-block"><a href="https://openreview.net/profile?id=~Xin_Jin1" target="_blank">Xin Jin</a>,</span>
+                <span class="author-block">Song-chun Zhu,</span>
+                <span class="author-block"><a href="https://www.csyangliu.com/" target="_blank">Yang Liu</a></span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">ECCV 2026</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="static/pdfs/paper.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="ai ai-arxiv"></i></span>
+                      <span>arXiv Soon</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fab fa-github"></i></span>
+                      <span>Code Soon</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://drive.google.com/file/d/1ETsaetMMWeKV3_E3Lr40BdybAsUAG8WM/view?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-database"></i></span>
+                      <span>Dataset</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fab fa-youtube"></i></span>
+                      <span>Video Soon</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <div class="media-placeholder media-placeholder-large" role="img" aria-label="Teaser video placeholder">
+            <div>
+              <span class="placeholder-kicker">Teaser Video</span>
+              <strong>AtomicDance result preview placeholder</strong>
+              <p>Replace this block with the final generated dance video.</p>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            AtomicDance converts music into a structured sequence of atomic movements, then completes the sequence into smooth full-body choreography.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Music-driven dance generation should produce motion that is rhythmically synchronized with music while preserving coherent choreographic structure. Existing end-to-end methods usually model dance as a continuous signal and overlook its compositional nature. We instead represent choreography as a sequence of semantically interpretable and reusable atomic movements.
+              </p>
+              <p>
+                We first construct an atomic movement vocabulary by segmenting dance sequences, clustering recurring motion patterns, and refining their semantics with LLM-assisted relabeling. We then introduce a two-stage generation framework that mirrors the choreography process. A full-music-aware planner predicts the type, timing, and duration of atomic movements. A transition-aware diffusion model retrieves suitable movement prototypes, re-creates them with variations, and synthesizes smooth, musically aligned transitions. The explicit symbolic plan also enables users to replace movements, adjust durations, and edit dance structure without retraining.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <div class="method-grid">
+              <div class="method-step">
+                <span class="method-index">1</span>
+                <h3>Atomic Vocabulary</h3>
+                <p>Segment dance sequences, cluster recurring movements, and assign interpretable atomic labels for choreography-level reasoning.</p>
+              </div>
+              <div class="method-step">
+                <span class="method-index">2</span>
+                <h3>Music-Aware Planner</h3>
+                <p>Predict atomic movement type, start time, and duration from the full music context to form a symbolic dance plan.</p>
+              </div>
+              <div class="method-step">
+                <span class="method-index">3</span>
+                <h3>Dance Completion</h3>
+                <p>Retrieve movement prototypes, synthesize variations, and generate smooth transitions with a transition-aware diffusion model.</p>
+              </div>
+            </div>
+
+            <div class="media-placeholder method-placeholder" role="img" aria-label="Pipeline figure placeholder">
+              <div>
+                <span class="placeholder-kicker">Pipeline Figure</span>
+                <strong>Planner + completion framework placeholder</strong>
+                <p>Drop the final method diagram here when the project assets are ready.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">More Results</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder one">
+                <div>
+                  <span class="placeholder-kicker">Result Video</span>
+                  <strong>Hip-hop sequence placeholder</strong>
+                </div>
+              </div>
+              <h2 class="subtitle has-text-centered">Music-synchronized atomic plan with generated transitions.</h2>
+            </div>
+            <div class="item">
+              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder two">
+                <div>
+                  <span class="placeholder-kicker">Result Video</span>
+                  <strong>Pop dance sequence placeholder</strong>
+                </div>
+              </div>
+              <h2 class="subtitle has-text-centered">Reusable atomic movements recomposed into a new choreography.</h2>
+            </div>
+            <div class="item">
+              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder three">
+                <div>
+                  <span class="placeholder-kicker">Result Video</span>
+                  <strong>Edited choreography placeholder</strong>
+                </div>
+              </div>
+              <h2 class="subtitle has-text-centered">Symbolic movement edits followed by motion completion.</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Atomic Movement Editing</h2>
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <p>
+                Because choreography is represented as an explicit sequence of atomic movements, users can inspect and revise the planned structure before completion. The same completion model can then regenerate natural transitions and motion details without retraining.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@inproceedings{cai2026atomicdance,
+  title={Music-to-Dance Generation via Atomic Movements},
+  author={Cai, Xinhao and Sun, Yixuan and Zheng, Minghang and Chen, Qingchao and Jin, Xin and Zhu, Song-chun and Liu, Yang},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
