@@ -116,14 +116,14 @@
                 <span class="author-block"><a href="https://openreview.net/profile?id=%7EXinhao_Cai3" target="_blank">Xinhao Cai</a>,</span>
                 <span class="author-block">Yixuan Sun,</span>
                 <span class="author-block"><a href="https://minghangz.github.io/" target="_blank">Minghang Zheng</a>,</span>
-                <span class="author-block">Qingchao Chen,</span>
+                <span class="author-block"><a href="https://qchenferv.github.io" target="_blank">Qingchao Chen</a>,</span>
                 <span class="author-block"><a href="https://openreview.net/profile?id=~Xin_Jin1" target="_blank">Xin Jin</a>,</span>
-                <span class="author-block">Song-chun Zhu,</span>
+                <span class="author-block"><a href="https://www.zhusongchun.net" target="_blank">Song-chun Zhu</a>,</span>
                 <span class="author-block"><a href="https://www.csyangliu.com/" target="_blank">Yang Liu</a></span>
               </div>
 
               <div class="is-size-5 publication-authors">
-                <span class="author-block">ECCV 2026</span>
+                <span class="author-block">Peking University<br>ECCV 2026</span>
               </div>
 
               <div class="column has-text-centered">
@@ -141,9 +141,9 @@
                     </a>
                   </span>
                   <span class="link-block">
-                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <a href="https://github.com/oceanflowlab/AtomicDance" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon"><i class="fab fa-github"></i></span>
-                      <span>Code Soon</span>
+                      <span>Code</span>
                     </a>
                   </span>
                   <span class="link-block">
@@ -169,13 +169,9 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <div class="media-placeholder media-placeholder-large" role="img" aria-label="Teaser video placeholder">
-            <div>
-              <span class="placeholder-kicker">Teaser Video</span>
-              <strong>AtomicDance result preview placeholder</strong>
-              <p>Replace this block with the final generated dance video.</p>
-            </div>
-          </div>
+          <video class="project-video teaser-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="static/videos/gen1.mp4" type="video/mp4">
+          </video>
           <h2 class="subtitle has-text-centered">
             AtomicDance converts music into a structured sequence of atomic movements, then completes the sequence into smooth full-body choreography.
           </h2>
@@ -224,49 +220,61 @@
               </div>
             </div>
 
-            <div class="media-placeholder method-placeholder" role="img" aria-label="Pipeline figure placeholder">
-              <div>
-                <span class="placeholder-kicker">Pipeline Figure</span>
-                <strong>Planner + completion framework placeholder</strong>
-                <p>Drop the final method diagram here when the project assets are ready.</p>
-              </div>
-            </div>
+            <object class="method-pdf" data="static/images/new_method.pdf" type="application/pdf" aria-label="AtomicDance pipeline figure">
+              <p>
+                Pipeline figure:
+                <a href="static/images/new_method.pdf" target="_blank">open PDF</a>
+              </p>
+            </object>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="hero is-small">
+    <section class="section results-section">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-3 has-text-centered">More Results</h2>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item">
-              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder one">
-                <div>
-                  <span class="placeholder-kicker">Result Video</span>
-                  <strong>Hip-hop sequence placeholder</strong>
-                </div>
-              </div>
-              <h2 class="subtitle has-text-centered">Music-synchronized atomic plan with generated transitions.</h2>
+          <h2 class="title is-3 has-text-centered">Visualization Results</h2>
+
+          <div class="result-group">
+            <h3 class="title is-4 has-text-centered">Generated Results</h3>
+            <div class="video-grid">
+              <article class="video-card">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/videos/gen2.mp4" type="video/mp4">
+                </video>
+                <p>Generated dance result 1</p>
+              </article>
+              <article class="video-card">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/videos/gen3.mp4" type="video/mp4">
+                </video>
+                <p>Generated dance result 2</p>
+              </article>
+              <article class="video-card">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/videos/gen4.mp4" type="video/mp4">
+                </video>
+                <p>Generated dance result 3</p>
+              </article>
             </div>
-            <div class="item">
-              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder two">
-                <div>
-                  <span class="placeholder-kicker">Result Video</span>
-                  <strong>Pop dance sequence placeholder</strong>
-                </div>
-              </div>
-              <h2 class="subtitle has-text-centered">Reusable atomic movements recomposed into a new choreography.</h2>
-            </div>
-            <div class="item">
-              <div class="media-placeholder result-placeholder" role="img" aria-label="Dance result placeholder three">
-                <div>
-                  <span class="placeholder-kicker">Result Video</span>
-                  <strong>Edited choreography placeholder</strong>
-                </div>
-              </div>
-              <h2 class="subtitle has-text-centered">Symbolic movement edits followed by motion completion.</h2>
+          </div>
+
+          <div class="result-group">
+            <h3 class="title is-4 has-text-centered">Editing Results</h3>
+            <div class="video-grid video-grid-two">
+              <article class="video-card">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/videos/edit1.mp4" type="video/mp4">
+                </video>
+                <p>Edited choreography result 1</p>
+              </article>
+              <article class="video-card">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/videos/edit2.mp4" type="video/mp4">
+                </video>
+                <p>Edited choreography result 2</p>
+              </article>
             </div>
           </div>
         </div>

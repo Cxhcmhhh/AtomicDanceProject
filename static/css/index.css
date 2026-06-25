@@ -297,6 +297,70 @@ body {
   min-height: 14rem;
 }
 
+.project-video {
+  background: #0f172a;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: block;
+  width: 100%;
+}
+
+.teaser-video {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+}
+
+.method-pdf {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: block;
+  height: min(72vh, 760px);
+  min-height: 28rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.results-section .hero-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.result-group {
+  margin-top: 2.5rem;
+}
+
+.video-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.video-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+}
+
+.video-card {
+  min-width: 0;
+}
+
+.video-card .project-video {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+.video-card p {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .method-grid {
     grid-template-columns: 1fr;
@@ -309,6 +373,16 @@ body {
 
   .media-placeholder strong {
     font-size: 1.1rem;
+  }
+
+  .method-pdf {
+    height: 60vh;
+    min-height: 20rem;
+  }
+
+  .video-grid,
+  .video-grid-two {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -885,4 +959,3 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
