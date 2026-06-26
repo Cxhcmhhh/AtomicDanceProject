@@ -311,15 +311,13 @@ body {
   object-fit: contain;
 }
 
-.method-pdf {
+.method-figure {
   background: var(--background-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
   display: block;
-  height: min(72vh, 760px);
-  min-height: 28rem;
-  overflow: hidden;
+  height: auto;
   width: 100%;
 }
 
@@ -373,11 +371,6 @@ body {
 
   .media-placeholder strong {
     font-size: 1.1rem;
-  }
-
-  .method-pdf {
-    height: 60vh;
-    min-height: 20rem;
   }
 
   .video-grid,
